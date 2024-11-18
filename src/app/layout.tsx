@@ -1,6 +1,8 @@
+import Parallax from '@/providers/Parallax'
+import 'animate.css'
 import type { Metadata } from 'next'
-import './globals.css'
 import { Montserrat } from 'next/font/google'
+import './globals.css'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -11,6 +13,7 @@ const monserrat = Montserrat({
 	style: ['normal'],
 	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 	variable: '--font-monse',
+	subsets: ['latin'],
 })
 
 export default function RootLayout({
@@ -20,7 +23,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${monserrat.variable} antialiased`}>{children}</body>
+			<body className={`${monserrat.variable} antialiased`}>
+				<Parallax>{children}</Parallax>
+			</body>
 		</html>
 	)
 }
