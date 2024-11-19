@@ -3,8 +3,8 @@
 import React, { useCallback, useRef, useState } from 'react'
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax'
 const FIRST_COUNT = 5
-const SECOND_COUNT = 10
-const THIRD_COUNT = 20
+const SECOND_COUNT = 5
+const THIRD_COUNT = 10
 
 export const Component = () => {
 	const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -50,7 +50,7 @@ export const Component = () => {
 				blobs.push(
 					<div
 						key={`blob-layer1-${i}`}
-						className="animate__animated animate__fadeInLeft absolute h-[9em] w-[9em] rounded-full bg-primary-primary500"
+						className="animate__animated animate__fadeInLeft absolute h-[8em] w-[8em] rounded-full bg-primary-primary500"
 						style={{
 							left: `${left}px`,
 							top: `${top}px`,
@@ -77,7 +77,7 @@ export const Component = () => {
 						style={{
 							left: `${left}px`,
 							top: `${top}px`,
-							filter: 'blur(5px)',
+							filter: 'blur(3px)',
 						}}
 					></div>
 				)
@@ -99,7 +99,7 @@ export const Component = () => {
 					style={{
 						left: `${left}px`,
 						top: `${top}px`,
-						filter: 'blur(10px)',
+						filter: 'blur(5px)',
 					}}
 				></div>
 			)
@@ -112,7 +112,7 @@ export const Component = () => {
 			shouldAlwaysCompleteAnimation: true,
 			children: (
 				<div
-					className="absolute"
+					className="absolute z-30"
 					style={{
 						transform: `translate(${position.x}px, ${position.y}px)`,
 					}}
@@ -120,7 +120,7 @@ export const Component = () => {
 					{generateBlobs()}
 				</div>
 			),
-			speed: 50,
+			speed: -20,
 		}),
 		[generateBlobs, position.x, position.y]
 	)
@@ -130,7 +130,7 @@ export const Component = () => {
 			shouldAlwaysCompleteAnimation: true,
 			children: (
 				<div
-					className="absolute"
+					className="absolute z-10"
 					style={{
 						transform: `translate(${position.x * 0.5}px, ${position.y * 0.5}px)`,
 					}}
@@ -138,7 +138,7 @@ export const Component = () => {
 					{generateBlobsLayer2()}
 				</div>
 			),
-			speed: 25,
+			speed: -10,
 		}),
 		[generateBlobsLayer2, position.x, position.y]
 	)
@@ -148,7 +148,7 @@ export const Component = () => {
 			shouldAlwaysCompleteAnimation: true,
 			children: (
 				<div
-					className="absolute"
+					className="absolute z-0"
 					style={{
 						transform: `translate(${position.x * 0.25}px, ${position.y * 0.25}px)`,
 					}}
@@ -156,7 +156,7 @@ export const Component = () => {
 					{generateBlobsLayer3()}
 				</div>
 			),
-			speed: 1,
+			speed: -1,
 		}),
 		[generateBlobsLayer3, position.x, position.y]
 	)
@@ -171,34 +171,34 @@ export const Component = () => {
 	}
 
 	return (
-		<>
+		<div ref={ref} onMouseMove={handleMouseMove}>
 			<ParallaxBanner
 				layers={[
 					blogLayers1,
 					blogLayers2,
 					blogLayers3,
-					{ image: '/images/background.svg', opacity: [0.9, 0] },
+					{ image: '/images/background.svg', opacity: [0.8, 0.1] },
 				]}
 				className="flex aspect-[0.7] flex-col justify-center md:aspect-[2/1]"
 			>
-				<div
-					onMouseMove={handleMouseMove}
-					ref={ref}
-					className="animate__animated animate__fadeInRight tm-auto flex w-[99%] flex-col items-start justify-center gap-10 rounded-lg bg-white/30 p-12 backdrop-blur-lg md:px-28 md:py-28"
-				>
-					<h1 className="animate__animated animate__fadeIn animate__delay-1s font-monse text-5xl font-bold text-primary-primary100 lg:text-8xl">
+				<div className="animate__animated animate__fadeInRight tm-auto flex w-[96%] flex-col items-start justify-center gap-1 rounded-lg bg-white/80 p-12 shadow-lg shadow-primary-primary500 backdrop-blur-lg md:m-auto md:max-w-7xl md:px-28 md:py-28">
+					<h1 className="animate__animated animate__fadeIn animate__delay-1s font-monse text-3xl font-bold text-primary-primary100 md:text-7xl">
 						Welcome to{' '}
-						<span className="mt-4 self-start bg-gradient-to-r from-primary-primary500 to-red-500 bg-clip-text font-bold text-transparent">
+						<span className="mt-4 self-start bg-gradient-to-r from-primary-primary500 to-red-500 bg-clip-text font-bold text-transparent text-opacity-40">
 							Debater
 						</span>
-						- The Ultimate Debate Platform
+						<br />
+						<span className="text-xl text-opacity-70 lg:text-3xl">
+							The Ultimate Debate Platform
+						</span>
 					</h1>
-					<p className="animate__animated animate__fadeIn animate__delay-1s mt-4 text-2xl font-medium text-primary-primary200 opacity-70 lg:text-3xl">
+
+					<p className="animate__animated animate__fadeIn animate__delay-1s text-md mt-4 font-monse font-medium text-red-600 text-opacity-70 lg:text-2xl">
 						Where echo chambers clash.
 					</p>
 				</div>
 			</ParallaxBanner>
-		</>
+		</div>
 	)
 }
 
