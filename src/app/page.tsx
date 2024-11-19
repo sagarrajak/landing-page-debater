@@ -1,10 +1,13 @@
-import Test from '@/components/Test'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import MainBaner from '@/components/MainBaner'
 
 export default function Home() {
 	return (
 		<main>
-			<Test />
-			<Test />
+			<Header />
+			<MainBaner />
+			<Footer />
 		</main>
 	)
 }
