@@ -12,6 +12,9 @@ export const Component = () => {
 
 	const firstPositions = React.useMemo(() => {
 		const allPositons = []
+		if (typeof window === 'undefined') {
+			return []
+		}
 		for (let i = 0; i < FIRST_COUNT; i++) {
 			const left = Math.random() * window.innerWidth
 			const top = Math.random() * window.innerHeight
@@ -22,6 +25,9 @@ export const Component = () => {
 
 	const secondPositions = React.useMemo(() => {
 		const allPositons = []
+		if (typeof window === 'undefined') {
+			return []
+		}
 		for (let i = 0; i < SECOND_COUNT; i++) {
 			const left = Math.random() * window.innerWidth
 			const top = Math.random() * window.innerHeight
@@ -32,6 +38,9 @@ export const Component = () => {
 
 	const thirdsPositions = React.useMemo(() => {
 		const allPositons = []
+		if (typeof window === 'undefined') {
+			return []
+		}
 		for (let i = 0; i < THIRD_COUNT; i++) {
 			const left = Math.random() * window.innerWidth
 			const top = Math.random() * window.innerHeight
@@ -43,6 +52,7 @@ export const Component = () => {
 	const generateBlobs = useCallback(
 		() => {
 			const blobs = []
+			if (!firstPositions || firstPositions.length <= 0) return []
 			for (let i = 0; i < FIRST_COUNT; i++) {
 				const left = firstPositions[i].left
 				const top = firstPositions[i].top
@@ -66,6 +76,7 @@ export const Component = () => {
 	const generateBlobsLayer2 = useCallback(
 		() => {
 			const blobs = []
+			if (!secondPositions || secondPositions.length <= 0) return []
 			for (let i = 0; i < SECOND_COUNT; i++) {
 				const left = secondPositions[i].left
 				const top = secondPositions[i].top
@@ -89,6 +100,7 @@ export const Component = () => {
 
 	const generateBlobsLayer3 = React.useCallback(() => {
 		const blobs = []
+		if (!thirdsPositions || thirdsPositions.length <= 0) return []
 		for (let i = 0; i < THIRD_COUNT; i++) {
 			const left = thirdsPositions[i].left
 			const top = thirdsPositions[i].top
@@ -99,7 +111,7 @@ export const Component = () => {
 					style={{
 						left: `${left}px`,
 						top: `${top}px`,
-						filter: 'blur(5px)',
+						filter: 'blur(px)',
 					}}
 				></div>
 			)
