@@ -88,7 +88,7 @@ export const Component = () => {
 						style={{
 							left: `${left}px`,
 							top: `${top}px`,
-							filter: 'blur(3px)',
+							filter: 'blur(5px)',
 						}}
 					></div>
 				)
@@ -110,8 +110,8 @@ export const Component = () => {
 					className="animate__animated animate__fadeInLeft absolute h-[3em] w-[3em] rounded-full bg-primary-primary400 opacity-10"
 					style={{
 						left: `${left}px`,
-						top: `${top}px`,
-						filter: 'blur(px)',
+						top: `${top}5px`,
+						filter: 'blur(7px)',
 					}}
 				></div>
 			)
