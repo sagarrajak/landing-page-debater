@@ -167,7 +167,7 @@ export const Component = () => {
 		const { left, top, width, height } = container.getBoundingClientRect()
 		const relX = (e.pageX - left - width / 2) / (width / 2) // Cursor X relative to container
 		const relY = (e.pageY - top - height / 2) / (height / 2) // Cursor Y relative to container
-		setPosition({ x: relX * 50, y: relY * 50 })
+		setPosition({ x: relX * 20, y: relY * 20 })
 	}
 
 	return (
@@ -187,7 +187,11 @@ export const Component = () => {
 					className="animate__animated animate__fadeInRight tm-auto flex w-[99%] flex-col items-start justify-center gap-10 rounded-lg bg-white/30 p-12 backdrop-blur-lg md:px-28 md:py-28"
 				>
 					<h1 className="animate__animated animate__fadeIn animate__delay-1s font-monse text-5xl font-bold text-primary-primary100 lg:text-8xl">
-						Next generation of Debate
+						Welcome to{' '}
+						<span className="mt-4 self-start bg-gradient-to-r from-primary-primary500 to-red-500 bg-clip-text font-bold text-transparent">
+							Debater
+						</span>
+						- The Ultimate Debate Platform
 					</h1>
 					<p className="animate__animated animate__fadeIn animate__delay-1s mt-4 text-2xl font-medium text-primary-primary200 opacity-70 lg:text-3xl">
 						Where echo chambers clash.
