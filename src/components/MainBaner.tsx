@@ -124,7 +124,7 @@ export const Component = () => {
 			shouldAlwaysCompleteAnimation: true,
 			children: (
 				<div
-					className="absolute z-30"
+					className="absolute z-30 hidden md:block"
 					style={{
 						transform: `translate(${position.x}px, ${position.y}px)`,
 					}}
@@ -142,7 +142,7 @@ export const Component = () => {
 			shouldAlwaysCompleteAnimation: true,
 			children: (
 				<div
-					className="absolute z-10"
+					className="absolute z-10 hidden md:block"
 					style={{
 						transform: `translate(${position.x * 0.5}px, ${position.y * 0.5}px)`,
 					}}
@@ -191,10 +191,10 @@ export const Component = () => {
 					blogLayers3,
 					{ image: '/images/background.svg', opacity: [0.8, 0.1] },
 				]}
-				className="flex aspect-[0.7] flex-col justify-center md:aspect-[2/1]"
+				className="flex aspect-[0.7] h-full w-full flex-col items-center justify-center md:aspect-[2/1]"
 			>
-				<div className="animate__animated animate__fadeInRight tm-auto flex w-[96%] flex-col items-start justify-center gap-1 rounded-lg bg-white/80 p-12 shadow-lg shadow-primary-primary500 backdrop-blur-lg md:m-auto md:max-w-7xl md:px-28 md:py-28">
-					<h1 className="animate__animated animate__fadeIn animate__delay-1s font-monse text-3xl font-bold text-primary-primary100 md:text-7xl">
+				<div className="animate__animated animate__fadeInRight tm-auto flex w-[94%] flex-col items-start justify-center gap-1 rounded-lg bg-white/80 p-8 shadow-lg shadow-primary-primary500 backdrop-blur-lg md:m-auto md:h-auto md:max-w-7xl md:px-28 md:py-28">
+					<h1 className="animate__animated animate__fadeIn animate__delay-1s font-monse text-4xl font-bold text-primary-primary100 md:text-7xl">
 						Welcome to{' '}
 						<span className="mt-4 self-start bg-gradient-to-r from-primary-primary500 to-red-500 bg-clip-text font-bold text-transparent text-opacity-40">
 							Debater
@@ -205,9 +205,9 @@ export const Component = () => {
 						</span>
 					</h1>
 
-					<p className="animate__animated animate__fadeIn animate__delay-1s text-md mt-4 font-monse font-medium text-red-600 text-opacity-70 lg:text-2xl">
+					{/* <p className="animate__animated animate__fadeIn animate__delay-1s text-md mt-4 font-monse font-medium text-red-600 text-opacity-70 lg:text-2xl">
 						Where echo chambers clash.
-					</p>
+					</p> */}
 				</div>
 			</ParallaxBanner>
 		</div>
