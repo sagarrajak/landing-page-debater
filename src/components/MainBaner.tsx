@@ -179,7 +179,7 @@ export const Component = () => {
 		const { left, top, width, height } = container.getBoundingClientRect()
 		const relX = (e.pageX - left - width / 2) / (width / 2) // Cursor X relative to container
 		const relY = (e.pageY - top - height / 2) / (height / 2) // Cursor Y relative to container
-		setPosition({ x: relX * 20, y: relY * 20 })
+		setPosition({ x: relX * 40, y: relY * 40 })
 	}
 
 	return (
@@ -193,8 +193,9 @@ export const Component = () => {
 				]}
 				className="flex aspect-[0.7] h-full w-full flex-col items-center justify-center md:aspect-[2/1]"
 			>
-				<div className="animate__animated animate__fadeInRight tm-auto flex w-[94%] flex-col items-start justify-center gap-1 rounded-lg bg-white/80 p-8 shadow-lg shadow-primary-primary500 backdrop-blur-lg md:m-auto md:h-auto md:max-w-7xl md:px-28 md:py-28">
-					<h1 className="animate__animated animate__fadeIn animate__delay-1s font-monse text-4xl font-bold text-primary-primary100 md:text-7xl">
+				<div className="animate__animated animate__fadeInRight tm-auto flex w-[94%] flex-col items-start justify-center gap-1 overflow-hidden rounded-xl bg-white/80 p-8 shadow-md shadow-primary-primary500 backdrop-blur-lg md:m-auto md:h-auto md:max-w-7xl md:px-28 md:py-28">
+					<div className="bg_tool_background absolute right-0 top-0 h-[12em] w-[12em] -translate-y-1/4 translate-x-1/4 rounded-full bg-clip-text opacity-60 shadow shadow-primary-primary300 transition-all duration-100 hover:shadow-md md:h-[35em] md:w-[35em]"></div>
+					<h1 className="animate__animated animate__fadeIn animate__delay-1s bg-clip-text font-monse text-4xl font-bold text-primary-primary100 md:text-7xl">
 						Welcome to{' '}
 						<span className="mt-4 self-start bg-gradient-to-r from-primary-primary500 to-red-500 bg-clip-text font-bold text-transparent text-opacity-40">
 							Debater
@@ -204,10 +205,6 @@ export const Component = () => {
 							The Ultimate Debate Platform
 						</span>
 					</h1>
-
-					{/* <p className="animate__animated animate__fadeIn animate__delay-1s text-md mt-4 font-monse font-medium text-red-600 text-opacity-70 lg:text-2xl">
-						Where echo chambers clash.
-					</p> */}
 				</div>
 			</ParallaxBanner>
 		</div>
