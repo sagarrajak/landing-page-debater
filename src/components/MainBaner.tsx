@@ -3,7 +3,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax'
 const FIRST_COUNT = 5
-const SECOND_COUNT = 5
+const SECOND_COUNT = 7
 const THIRD_COUNT = 10
 
 export const Component = () => {
@@ -60,7 +60,10 @@ export const Component = () => {
 				blobs.push(
 					<div
 						key={`blob-layer1-${i}`}
-						className="animate__animated animate__fadeInLeft absolute h-[8em] w-[8em] rounded-full bg-primary-primary500"
+						className={
+							(i % 2 == 0 ? 'bg-blue-700 ' : 'bg-red-700 ') +
+							'animate__animated animate__fadeInLeft absolute h-[8em] w-[8em] rounded-full'
+						}
 						style={{
 							left: `${left}px`,
 							top: `${top}px`,
@@ -84,7 +87,10 @@ export const Component = () => {
 				blobs.push(
 					<div
 						key={`blob-layer2-${i}`}
-						className="animate__animated animate__fadeInLeft absolute h-[6em] w-[6em] rounded-full bg-primary-primary400 opacity-30"
+						className={
+							(i % 2 == 0 ? 'bg-blue-700 ' : 'bg-red-700 ') +
+							'animate__animated animate__fadeInLeft absolute h-[6em] w-[6em] rounded-full opacity-30'
+						}
 						style={{
 							left: `${left}px`,
 							top: `${top}px`,
@@ -107,7 +113,10 @@ export const Component = () => {
 			blobs.push(
 				<div
 					key={i}
-					className="animate__animated animate__fadeInLeft absolute h-[3em] w-[3em] rounded-full bg-primary-primary400 opacity-10"
+					className={
+						(i % 2 == 0 ? 'bg-blue-700 ' : 'bg-red-700 ') +
+						'animate__animated animate__fadeInLeft absolute h-[3em] w-[3em] rounded-full bg-primary-primary400 opacity-10'
+					}
 					style={{
 						left: `${left}px`,
 						top: `${top}5px`,
@@ -173,6 +182,24 @@ export const Component = () => {
 		[generateBlobsLayer3, position.x, position.y]
 	)
 
+	const gradientContainer: BannerLayer = {
+		opacity: [0.7, 1],
+		shouldAlwaysCompleteAnimation: true,
+		expanded: false,
+		children: <div className="gradient_container absolute inset-0"></div>,
+	}
+
+	const backgroundImageContainer: BannerLayer = {
+		opacity: [0.7, 1],
+		shouldAlwaysCompleteAnimation: true,
+		expanded: false,
+		children: (
+			<div className="flex h-full w-full flex-row items-center justify-around">
+				<div className="inset-0 h-full w-full bg-[url('/images/meeting.png')] bg-contain bg-no-repeat md:w-[120%] md:bg-cover"></div>
+			</div>
+		),
+	}
+
 	const handleMouseMove = (e: React.MouseEvent) => {
 		const container = ref.current
 		if (!container) return
@@ -186,14 +213,16 @@ export const Component = () => {
 		<div ref={ref} onMouseMove={handleMouseMove}>
 			<ParallaxBanner
 				layers={[
+					gradientContainer,
+					backgroundImageContainer,
 					blogLayers1,
 					blogLayers2,
 					blogLayers3,
-					{ image: '/images/background.svg', opacity: [0.8, 0.1] },
+					// { image: '/images/background.svg', opacity: [0.8, 0.1] },
 				]}
 				className="flex aspect-[0.7] h-full w-full flex-col items-center justify-center md:aspect-[2/1]"
 			>
-				<div className="animate__animated animate__fadeInRight tm-auto flex w-[94%] flex-col items-start justify-center gap-1 overflow-hidden rounded-xl bg-white/80 p-8 shadow-md shadow-primary-primary500 backdrop-blur-lg md:m-auto md:h-auto md:max-w-7xl md:px-28 md:py-28">
+				<div className="animate__animated animate__fadeInRight tm-auto flex w-[94%] flex-col items-start justify-center gap-1 overflow-hidden rounded-xl bg-white/90 p-8 shadow-sm shadow-white backdrop-blur-2xl md:m-auto md:h-auto md:max-w-7xl md:px-28 md:py-28">
 					<div className="bg_tool_background absolute right-0 top-0 h-[12em] w-[12em] -translate-y-1/4 translate-x-1/4 rounded-full bg-clip-text opacity-60 shadow shadow-primary-primary300 transition-all duration-100 hover:shadow-md md:h-[35em] md:w-[35em]"></div>
 					<h1 className="animate__animated animate__fadeIn animate__delay-1s bg-clip-text font-monse text-4xl font-bold text-primary-primary100 md:text-7xl">
 						Welcome to{' '}
