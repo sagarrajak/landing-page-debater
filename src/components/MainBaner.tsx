@@ -190,7 +190,7 @@ export const Component = () => {
 	}
 
 	const backgroundImageContainer: BannerLayer = {
-		opacity: [0.7, 1],
+		opacity: [1, 0.2],
 		shouldAlwaysCompleteAnimation: true,
 		expanded: false,
 		children: (
