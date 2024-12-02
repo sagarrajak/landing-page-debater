@@ -195,7 +195,7 @@ export const Component = () => {
 		expanded: false,
 		children: (
 			<div className="flex h-full w-full flex-row items-center justify-around">
-				<div className="inset-0 h-full w-full bg-[url('/images/meeting.png')] bg-contain bg-no-repeat md:w-[120%] md:bg-cover"></div>
+				<div className="inset-0 h-full w-full bg-[url('/images/meeting.webp')] bg-contain bg-no-repeat md:w-[120%] md:bg-cover"></div>
 			</div>
 		),
 	}
