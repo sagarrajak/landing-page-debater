@@ -214,10 +214,10 @@ export const Component = () => {
 			<ParallaxBanner
 				layers={[
 					gradientContainer,
-					backgroundImageContainer,
 					blogLayers1,
 					blogLayers2,
 					blogLayers3,
+					backgroundImageContainer,
 					// { image: '/images/background.svg', opacity: [0.8, 0.1] },
 				]}
 				className="flex aspect-[0.7] h-full w-full flex-col items-center justify-center md:aspect-[2/1]"
